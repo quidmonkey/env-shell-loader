@@ -4,14 +4,20 @@
 function cd {
   file=".env"
 
-  if [ -f "$file" ]; then
-    delete_env_file $file
-  fi
+  old_dir="$PWD"
 
   builtin cd "$@"
 
-  if [ -f "$file" ]; then
-    load_env_file $file
+  new_dir="$PWD"
+  dir_diff="${old_dir//"$new_dir"}" # will be a stub if parent directory
+
+  # only remove env vars if moving into a parent directory
+  if [[ -f "$old_dir/$file" && "$dir_diff" != "$old_dir" ]]; then
+    delete_env_file $old_dir/$file
+  fi
+
+  if [ -f "$new_dir/$file" ]; then
+    load_env_file $new_dir/$file
   fi
 }
 
