@@ -5,3 +5,5 @@ This is a simple set of bash functions to check for an `.env` file whenever you 
 The idea is based on the Node [dotenv](https://www.npmjs.com/package/dotenv) lib, which loads any env vars defined in a `.env` file.
 
 The functions in the `env-shell-loader.sh` are to be added to your `.bash_profile` for bash and `.zshrc` for zsh.
+
+For a more robust solution, see [direnv](https://direnv.net/).
