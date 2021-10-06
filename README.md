@@ -1,6 +1,6 @@
 # env-shell-loader
 
-This is a simple set of bash functions to check for an `.env` file whenever you `cd` into a directory, and load the file's contents into the current shell as env vars. These env vars will be removed once you `cd` out of the directory.
+This is a simple set of bash functions to check for an `.env` file whenever you `cd` into a directory, and load the file's contents into the current shell as env vars. These env vars will be removed once you `cd` out of the directory and into a parent directory (not a child directory).
 
 The idea is based on the Node [dotenv](https://www.npmjs.com/package/dotenv) lib, which loads any env vars defined in a `.env` file.
 
